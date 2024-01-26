@@ -187,7 +187,7 @@ def main():
     model_filename = "llama-2-7b-chat.Q2_K.gguf"
     #model_url = "https://huggingface.co/TheBloke/Llama-2-13B-Chat-GGUF/resolve/main/llama-2-13b-chat.Q5_K_M.gguf"
     #model_filename = "llama-2-13b-chat.Q5_K_M.gguf"
-    model_path = os.path.join("/home/user/app/", model_filename)
+    model_path = os.path.join(os.getcwd(), model_filename)
     
     download_model(model_url, model_path)
 
