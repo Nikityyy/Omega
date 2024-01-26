@@ -55,10 +55,10 @@ def select_llm(model_path) -> LlamaCPP:
     return LlamaCPP(
         model_path=model_path,
         temperature=0.45,
-        max_new_tokens=2048,
-        context_window=10000,
+        max_new_tokens=200,
+        context_window=2000,
         generate_kwargs={},
-        model_kwargs={"n_gpu_layers": 100},
+        model_kwargs={"n_gpu_layers": 1},
         messages_to_prompt=messages_to_prompt,
         completion_to_prompt=completion_to_prompt,
         verbose=True,
