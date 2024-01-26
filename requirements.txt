@@ -1,0 +1,15 @@
+pyperclip
+beautifulsoup4
+python-docx
+Pillow
+opencv-python
+pytube
+youtube-transcript-api
+wget
+numpy
+pytesseract
+streamlit
+PyMuPDF
+llama-index
+langchain
+llama-cpp-python
