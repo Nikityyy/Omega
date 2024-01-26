@@ -1,5 +1,5 @@
 #pip install -qq langchain wget llama-index cohere llama-cpp-python pytesseract opencv-python-headless pytube youtube-transcript-api
-#pip -q install streamlit pymupdf
+#pip -q install streamlit pymupdf beautifulsoup4
 
 import requests
 from bs4 import BeautifulSoup
@@ -7,7 +7,6 @@ from docx import Document
 from concurrent.futures import ThreadPoolExecutor
 import os
 from PIL import Image
-import cv2
 from pytube import YouTube
 from youtube_transcript_api import YouTubeTranscriptApi
 import pyperclip
@@ -105,11 +104,8 @@ def perform_ocr(image):
     # Resize the image to reduce processing time
     resized_image = image.resize((800, 600))
 
-    # Convert the PIL image to OpenCV format
-    img_cv = cv2.cvtColor(np.array(resized_image), cv2.COLOR_RGB2BGR)
-
     # Perform OCR using pytesseract
-    text = pytesseract.image_to_string(img_cv)
+    text = pytesseract.image_to_string(resized_image)
     return text
 
 def extract_text_from_pdf(uploaded_file):
@@ -191,7 +187,7 @@ def main():
     model_filename = "llama-2-7b-chat.Q2_K.gguf"
     #model_url = "https://huggingface.co/TheBloke/Llama-2-13B-Chat-GGUF/resolve/main/llama-2-13b-chat.Q5_K_M.gguf"
     #model_filename = "llama-2-13b-chat.Q5_K_M.gguf"
-    model_path = os.path.join(os.getcwd(), model_filename)
+    model_path = os.path.join("/home/user/app/", model_filename)
     
     download_model(model_url, model_path)
 
